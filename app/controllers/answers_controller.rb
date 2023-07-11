@@ -19,7 +19,21 @@ class AnswersController < ApplicationController
       render 'questions/show'
     end
   end
-  # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
+
+  def edit
+    @question = current_user.questions.find(params[:question_id])
+    @answer = current_user.answers.find(params[:id])
+  end
+
+  def update
+    @answer = current_user.answers.find_by(id: params[:id])
+    if @answer.update(answer_params)
+      redirect_to question_path(@answer.question_id), success: "回答を更新しました"
+    else
+      flash.now[:danger] = "失敗しました"
+      render :edit
+    end
+  end
 
   def destroy
     @answer = current_user.answers.find(params[:id])
