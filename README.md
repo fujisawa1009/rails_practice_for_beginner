@@ -1,5 +1,6 @@
 # README
 ## 環境構築
+## push テスト用
 ```
 $ docker compose build --no-cache
 $ docker compose run --rm web bin/setup
