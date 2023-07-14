@@ -1,0 +1,15 @@
+<%= form_with(model: @user) do |f| %>
+  <div class="form-group">
+    <div>
+      <%= image_tag 'https://placehold.jp/64x64.png', class: 'rounded-circle' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+      <%= f.label :profile %>
+      <%= f.text_area :profile, class: 'form-control', rows: 10 %>
+    </div>
+    <%= f.submit '更新する', class: 'btn btn-primary' %>
+<% end %>
