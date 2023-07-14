@@ -1,0 +1,17 @@
+<%= form_with(model: @user) do |f| %>
+  <div class="form-group">
+    <div>
+      <%= image_tag 'https://placehold.jp/64x64.png', class: 'rounded-circle' %>
+    </div>
+    <div class="form-group">
+      <ul type="none">
+        <li><b>ユーザー名:</b></li>
+        <li><%=@user.name%></li>
+        <li><b>メールアドレス:</b></li>
+        <li><%=@user.email%></li>
+        <li><b>プロフィール:</b></li>
+        <li><%=@user.profile%></li>
+      </ul>
+    </div>
+    <%= link_to '編集する',edit_user_path, class: 'btn btn-primary' %>
+<% end %>
